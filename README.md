@@ -30,7 +30,7 @@ To get started with SliceMaster Pro, follow these steps:
 **`Step 1:`** Clone the Repository
 First, you'll need to clone the repository from GitHub. Open your terminal and run the following command:
 ```
-https://github.com/MAHMOUDELSAYED69/SliceMaster-Pro.git
+https://github.com/MAHMOUDELSAYED7/SliceMaster-Pro.git
 ```
 Replace <repository-url> with the actual URL of your repository if it was changed.
 
@@ -126,4 +126,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or feedback, please reach out via email: [gcfjxvkj@gmail.com](gcfjxvkj@gmail.com)
+For any questions or feedback, please reach out via email: [mahmoudelsayed.dev@gmail.com](mahmoudelsayed.dev@gmail.com)
