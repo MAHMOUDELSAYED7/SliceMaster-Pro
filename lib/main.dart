@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:slice_master_pro/data/database/hive.dart';
 import 'package:window_manager/window_manager.dart';
 
-import 'app/app.dart';
-import 'utils/helpers/shared_pref.dart';
+import 'app.dart';
+import 'data/source/database/hive_service.dart';
+import 'core/service/cache/cache.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,8 +1,8 @@
 import 'package:hive/hive.dart';
-import 'package:slice_master_pro/data/model/invoice.dart';
-import 'package:slice_master_pro/data/model/pizza.dart';
+import '../../data/model/invoice.dart';
+import '../../data/model/pizza.dart';
 
-import '../database/hive.dart';
+import '../source/database/hive.dart';
 
 class PizzasRepository {
   PizzasRepository._privateConstructor();
