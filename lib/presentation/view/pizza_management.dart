@@ -13,8 +13,8 @@ import '../../core/widgets/custom_button.dart';
 import '../../core/widgets/custom_text_field.dart';
 import '../../core/widgets/icon_button_tooltip.dart';
 import '../../data/model/pizza.dart';
-import '../../presentation/view_model/repository/pizza_cubit.dart';
-import '../view_model/image/image_cubit.dart';
+import '../controllers/repository/pizza_cubit.dart';
+import '../controllers/image/image_cubit.dart';
 
 class PizzaManagementScreen extends StatefulWidget {
   const PizzaManagementScreen({super.key});

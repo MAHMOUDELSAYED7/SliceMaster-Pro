@@ -9,8 +9,8 @@ import '../../../core/utils/extension/extension.dart';
 import '../../../core/widgets/custom_button.dart';
 import '../../../core/widgets/custom_text_field.dart';
 import '../../../data/model/pizza.dart';
-import '../../view_model/calc/calc_cubit.dart';
-import '../../view_model/invoice/invoice_cubit.dart';
+import '../../controllers/calc/calc_cubit.dart';
+import '../../controllers/invoice/invoice_cubit.dart';
 
 class InvoiceCard extends StatefulWidget {
   const InvoiceCard({super.key});

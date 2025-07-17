@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/utils/constants/colors.dart';
 import '../../../core/utils/extension/extension.dart';
 import '../../../data/model/pizza.dart';
-import '../../view_model/calc/calc_cubit.dart';
+import '../../controllers/calc/calc_cubit.dart';
 
 class ActionCard extends StatefulWidget {
   const ActionCard({

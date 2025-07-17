@@ -8,8 +8,8 @@ import '../../core/utils/constants/images.dart';
 import '../../core/utils/extension/extension.dart';
 import '../../core/utils/helpers/my_snackbar.dart';
 import '../../core/widgets/icon_button_tooltip.dart';
-import '../../presentation/view_model/excel/excel_cubit.dart';
-import '../view_model/archive/archive_cubit.dart';
+import '../controllers/excel/excel_cubit.dart';
+import '../controllers/archive/archive_cubit.dart';
 
 class ArchiveScreen extends StatelessWidget {
   const ArchiveScreen({super.key});

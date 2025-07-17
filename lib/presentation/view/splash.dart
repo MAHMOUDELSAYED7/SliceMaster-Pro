@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../core/utils/constants/images.dart';
 import '../../core/utils/constants/routes.dart';
 import '../../core/utils/extension/extension.dart';
-import '../view_model/auth_status/auth_cubit.dart';
+import '../controllers/auth_status/auth_cubit.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

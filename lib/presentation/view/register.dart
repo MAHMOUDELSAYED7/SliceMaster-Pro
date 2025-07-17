@@ -6,7 +6,7 @@ import '../../core/utils/extension/extension.dart';
 import '../../core/utils/helpers/my_snackbar.dart';
 import '../../core/widgets/custom_button.dart';
 import '../../core/widgets/custom_text_field.dart';
-import '../view_model/register/register_cubit.dart';
+import '../controllers/register/register_cubit.dart';
 import 'widgets/auth_background.dart';
 import 'widgets/auth_headline.dart';
 import 'widgets/text_and_btn.dart';

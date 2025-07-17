@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/utils/extension/extension.dart';
-import '../../presentation/view_model/auth_status/auth_cubit.dart';
+import '../../presentation/controllers/auth_status/auth_cubit.dart';
 import '../utils/constants/colors.dart';
 import '../utils/constants/routes.dart';
 import '../utils/helpers/my_snackbar.dart';
