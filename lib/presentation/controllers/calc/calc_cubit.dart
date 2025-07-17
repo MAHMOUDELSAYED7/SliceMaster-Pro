@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import '../../../data/model/pizza.dart';
 
@@ -7,9 +6,10 @@ enum PizzaSize { s, m, l }
 class CalculatorCubit extends Cubit<Map<PizzaModel, Map<PizzaSize, int>>> {
   CalculatorCubit() : super({});
 
-  PizzaSize selectedSize = PizzaSize.s;
+  final Map<PizzaModel, PizzaSize> _pizzaSizes = {};
 
   void increment(PizzaModel pizza) {
+    final selectedSize = _pizzaSizes[pizza] ?? PizzaSize.s;
     final currentSizeCount = state[pizza]?[selectedSize] ?? 0;
     final updatedState = {
       ...state,
@@ -22,6 +22,7 @@ class CalculatorCubit extends Cubit<Map<PizzaModel, Map<PizzaSize, int>>> {
   }
 
   void decrement(PizzaModel pizza) {
+    final selectedSize = _pizzaSizes[pizza] ?? PizzaSize.s;
     final currentSizeCount = state[pizza]?[selectedSize] ?? 0;
     if (currentSizeCount > 0) {
       final updatedState = {
@@ -35,9 +36,13 @@ class CalculatorCubit extends Cubit<Map<PizzaModel, Map<PizzaSize, int>>> {
     }
   }
 
-  void setSize(PizzaSize size) {
-    selectedSize = size;
+  void setPizzaSize(PizzaModel pizza, PizzaSize size) {
+    _pizzaSizes[pizza] = size;
     emit({...state});
+  }
+
+  PizzaSize getPizzaSize(PizzaModel pizza) {
+    return _pizzaSizes[pizza] ?? PizzaSize.s;
   }
 
   double getTotalPrice({num? discount}) {
@@ -72,5 +77,8 @@ class CalculatorCubit extends Cubit<Map<PizzaModel, Map<PizzaSize, int>>> {
     }
   }
 
-  void reset() => emit({});
+  void reset() {
+    _pizzaSizes.clear();
+    emit({});
+  }
 }

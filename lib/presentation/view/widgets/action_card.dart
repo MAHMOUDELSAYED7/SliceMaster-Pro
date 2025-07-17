@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/utils/constants/colors.dart';
 import '../../../core/utils/extension/extension.dart';
@@ -23,39 +24,43 @@ class ActionCard extends StatefulWidget {
 }
 
 class _ActionCardState extends State<ActionCard> {
-  PizzaSize _selectedSize = PizzaSize.s;
-
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 10,
-      right: 15,
-      left: 15,
-      child: Container(
-        height: 15.sp,
-        decoration: BoxDecoration(
-          color: ColorManager.darkGrey,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _buildPizzaSizeSelectors(),
-            IconButton(
-              onPressed: widget.onIncrement,
-              icon: Icon(Icons.add, size: 7.sp),
+    return BlocBuilder<CalculatorCubit, Map<PizzaModel, Map<PizzaSize, int>>>(
+      builder: (context, state) {
+        final selectedSize = context.read<CalculatorCubit>().getPizzaSize(widget.pizza);
+
+        return Positioned(
+          bottom: 10,
+          right: 15,
+          left: 15,
+          child: Container(
+            height: 15.sp,
+            decoration: BoxDecoration(
+              color: ColorManager.darkGrey,
+              borderRadius: BorderRadius.circular(10),
             ),
-            IconButton(
-              onPressed: widget.onDecrement,
-              icon: Icon(Icons.remove, size: 7.sp),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _buildPizzaSizeSelectors(selectedSize),
+                IconButton(
+                  onPressed: widget.onIncrement,
+                  icon: Icon(Icons.add, size: 7.sp),
+                ),
+                IconButton(
+                  onPressed: widget.onDecrement,
+                  icon: Icon(Icons.remove, size: 7.sp),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 
-  Widget _buildPizzaSizeSelector(int index) {
+  Widget _buildPizzaSizeSelector(int index, PizzaSize selectedSize) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -70,13 +75,11 @@ class _ActionCardState extends State<ActionCard> {
             Radio<PizzaSize>(
               activeColor: ColorManager.white,
               value: PizzaSize.values[index],
-              groupValue: _selectedSize,
+              groupValue: selectedSize,
               onChanged: (PizzaSize? value) {
-                context.cubit<CalculatorCubit>().setSize(value!);
-                setState(() {
-                  _selectedSize = value;
-                });
-                
+                if (value != null) {
+                  context.read<CalculatorCubit>().setPizzaSize(widget.pizza, value);
+                }
               },
             ),
           ],
@@ -85,12 +88,12 @@ class _ActionCardState extends State<ActionCard> {
     );
   }
 
-  Widget _buildPizzaSizeSelectors() {
+  Widget _buildPizzaSizeSelectors(PizzaSize selectedSize) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
         PizzaSize.values.length,
-        (index) => _buildPizzaSizeSelector(index),
+        (index) => _buildPizzaSizeSelector(index, selectedSize),
       ),
     );
   }
